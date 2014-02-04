@@ -13,9 +13,26 @@ describe("Messages module", function () {
     });
 });
 
+describe("Update Checks", function () {
+    it("should output prompt to update", function () {
+        var expected = "\n\n[BS] ----------------------------------------\n";
+        expected    += "[BS] Update Available: 1.2.2 (current: 1.0.0)\n";
+        expected    += "[BS] Run npm update -g browser-sync to update\n";
+        expected    += "[BS] ----------------------------------------\n\n";
+        var actual = ansiTrim(messages.update.prompt("1.2.2", "1.0.0"));
+        assert.equal(actual, expected);
+    });
+    it("should confirm using latest", function () {
+        var expected = "[BS] We checked - you're running the latest version of BrowserSync :)\n";
+        expected    += "[BS] (You can disable this check in the options)\n";
+        var actual = ansiTrim(messages.update.confirm());
+        assert.equal(actual, expected);
+    });
+});
+
 describe("No server or Proxy output", function () {
     it("should output the", function () {
-        var expected = "[BS] Copy the following snippet into your website, just before the closing </body> tag";
+        var expected = "\n[BS] Copy the following snippet into your website, just before the closing </body> tag";
         expected    += "\n\n<script src='//192.168.0.4:3000/socket.io/socket.io.js'></script>\n";
         expected    += "<script>var ___socket___ = io.connect('http://192.168.0.4:3000');</script>\n";
         expected    += "<script src='//192.168.0.4:3001/client/browser-sync-client.min.js'></script>\n";
