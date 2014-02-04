@@ -18,7 +18,7 @@ describe("Update Checks", function () {
         var expected = "\n\n[BS] ----------------------------------------\n";
         expected    += "[BS] Update Available: 1.2.2 (current: 1.0.0)\n";
         expected    += "[BS] Run npm update -g browser-sync to update\n";
-        expected    += "[BS] ----------------------------------------\n\n";
+        expected    += "[BS] ----------------------------------------\n";
         var actual = ansiTrim(messages.update.prompt("1.2.2", "1.0.0"));
         assert.equal(actual, expected);
     });
