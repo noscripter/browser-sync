@@ -3,6 +3,11 @@ var browserSync = require("./lib/index");
 var bs = browserSync.init("test/fixtures/**/*.css", {
     server: {
         baseDir: "test/fixtures"
+    },
+    ports: {
+        min: 4000,
+        max: 4004
+
     }
 }).on("init", function (api) {
 
