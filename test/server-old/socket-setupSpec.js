@@ -18,19 +18,10 @@ var socketUrl = "http://0.0.0.0:" + ports.socket;
 
 describe("setup Socket", function () {
 
-    var consoleStub;
     var io;
     var cb = sinon.spy();
     var cb2 = sinon.spy();
     var events;
-
-    before(function () {
-        consoleStub = sinon.stub(console, "log");
-    });
-
-    after(function () {
-        consoleStub.restore();
-    });
 
     before(function () {
 

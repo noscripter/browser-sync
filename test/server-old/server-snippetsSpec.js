@@ -23,13 +23,13 @@ var snippet = messages.scriptTags("0.0.0.0", ports, options);
 describe("Launching a server with snippets", function () {
 
     var servers, reqCallback;
+
     var io;
     var clientsSpy;
-    var emitSpy, consoleStub;
+    var emitSpy;
 
     before(function () {
         clientsSpy = sinon.stub().returns([]);
-        consoleStub = sinon.stub(console, "log");
         emitSpy = sinon.spy();
         io = {
             sockets: {
@@ -57,10 +57,6 @@ describe("Launching a server with snippets", function () {
 
     afterEach(function () {
         servers.staticServer.close();
-    });
-
-    after(function () {
-        consoleStub.restore();
     });
 
     /**

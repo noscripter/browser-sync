@@ -13,7 +13,7 @@ describe("displaying the version number", function () {
 
     var spy;
     before(function () {
-        spy = sinon.stub(console, "log");
+        spy = sinon.spy(console, "log");
     });
     after(function () {
         spy.restore();

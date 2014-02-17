@@ -11,6 +11,7 @@ describe("Failing the process on errors", function () {
 
     var spy;
     before(function () {
+
         spy = sinon.stub(browserSync, "log");
     });
     afterEach(function () {
@@ -23,7 +24,7 @@ describe("Failing the process on errors", function () {
         assert.isDefined(browserSync.fail);
     });
     it("can fail", function () {
-        browserSync.fail("Error!", {});
+        browserSync.fail("Error!", {}, false);
         sinon.assert.calledWithExactly(spy, "Error!", {}, true);
     });
 });
