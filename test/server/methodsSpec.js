@@ -69,32 +69,6 @@ describe("Exposed Methods", function () {
         });
     });
 
-    describe("naming the ports", function () {
-        it("can assign names to the 2 required ports", function () {
-            var ports = [3000,3001];
-            var names = ["socket", "controlPanel"];
-            var named = browserSync.assignPortNames(ports, names);
-            assert.equal(named.socket, 3000);
-            assert.equal(named.controlPanel, 3001);
-        });
-        it("can assign names to the 2 required ports + client server", function () {
-            var ports = [3000,3001,3002];
-            var names = ["socket", "controlPanel", "server"];
-            var named = browserSync.assignPortNames(ports, names);
-            assert.equal(named.socket, 3000);
-            assert.equal(named.controlPanel, 3001);
-            assert.equal(named.server, 3002);
-        });
-        it("can assign names to the 2 required ports + client proxy", function () {
-            var ports = [3000,3001,3002];
-            var names = ["socket", "controlPanel", "proxy"];
-            var named = browserSync.assignPortNames(ports, names);
-            assert.equal(named.socket, 3000);
-            assert.equal(named.controlPanel, 3001);
-            assert.equal(named.proxy, 3002);
-        });
-    });
-
     describe("getting a display-able base DIR for server", function () {
 
         var cwd = process.cwd();
