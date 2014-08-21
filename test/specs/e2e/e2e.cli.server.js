@@ -9,14 +9,13 @@ var fork     = require("child_process").fork;
 
 var index   = path.resolve( __dirname + "/../../../index.js");
 
-describe("E2E CLI server test", function () {
+describe.skip("E2E CLI server test", function () {
 
     this.timeout(5000);
 
     var bs, options;
 
     before(function (done) {
-
 
         bs = fork(index, server.commands[0].args);
 
@@ -28,8 +27,9 @@ describe("E2E CLI server test", function () {
         bs.send({send: "options"});
     });
 
-    after(function () {
+    after(function (done) {
         bs.kill("SIGINT");
+        setTimeout(done, 200);
     });
 
     it("returns the snippet", function (done) {
